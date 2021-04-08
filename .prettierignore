@@ -1,0 +1,11 @@
+.vscode
+build
+coverage
+node_modules
+angular.json
+karma.conf.js
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+tslint.json
+.browserslistrc
