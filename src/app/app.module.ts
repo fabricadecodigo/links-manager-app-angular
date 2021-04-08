@@ -8,12 +8,7 @@ import { AngularMaterialModule } from './core/modules/angular-material.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AngularMaterialModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, AngularMaterialModule],
   providers: [],
   bootstrap: [AppComponent],
 })
