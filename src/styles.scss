@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/typography';
+@import './styles/form';
 
 html,
 body {
@@ -7,4 +8,20 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  height: 100%;
+}
+
+.container-flex {
+  height: calc(100% - 64px); // menos a altura da toolbar
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $body-1: mat-typography-level(16px, 24px, 400),
+  $body-2: mat-typography-level(16px, 24px, 500),
+  $button: mat-typography-level(16px, 16px, 500),
+);
+
+@include angular-material-typography($custom-typography);
