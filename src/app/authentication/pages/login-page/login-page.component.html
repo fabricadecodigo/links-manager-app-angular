@@ -36,7 +36,7 @@
           </mat-form-field>
 
           <div class="form-button-container">
-            <button type="submit" mat-raised-button color="primary" class="form-item-full">Entrar</button>
+            <button type="submit" mat-raised-button color="primary" class="form-item-full" [disabled]="form.invalid">Entrar</button>
           </div>
         </form>
       </mat-card-content>
