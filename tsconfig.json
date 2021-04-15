@@ -22,7 +22,8 @@
     ],
     "paths": {
       "@core/*": ["./src/app/core/*"],
-      "@authentication/*": ["./src/app/authentication/*"]
+      "@authentication/*": ["./src/app/authentication/*"],
+      "@onboarding/*": ["./src/app/onboarding/*"],
     }
   },
   "angularCompilerOptions": {

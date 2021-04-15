@@ -11,9 +11,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'auth/login',
-    pathMatch: 'full'
-  }
+    loadChildren: () =>
+      import('./onboarding/onboarding-routing.module').then(
+        (m) => m.OnboardingRoutingModule
+      ),
+  },
 ];
 
 @NgModule({
