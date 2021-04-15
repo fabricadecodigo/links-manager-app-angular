@@ -1,1 +1,60 @@
-<p>create-account works!</p>
+<div class="container-flex">
+  <div class="center-all">
+    <mat-card class="create-account-form form-container">
+      <mat-card-title>
+        <h1 class="mat-display-3 form-title">Criar uma conta</h1>
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field class="form-item-full">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput [formControl]="name" maxlength="250" />
+            <mat-error *ngIf="name.hasError('required')"> Nome é <strong>obrigatório</strong> </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-item-full">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="email" placeholder="Ex. seuemail@exemplo.com.br" />
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+              Informe um e-mail válido
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')"> Email é <strong>obrigatório</strong> </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-item-full">
+            <mat-label>Nome de usuário</mat-label>
+            <input type="text" matInput [formControl]="username" maxlength="50" />
+            <mat-error *ngIf="username.hasError('required')">
+              Nome de usuário é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-item-full">
+            <mat-label>Senha</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" [formControl]="password" />
+            <mat-error *ngIf="password.hasError('required')"> Senha é <strong>obrigatório</strong> </mat-error>
+
+            <button
+              type="button"
+              mat-button
+              matSuffix
+              mat-icon-button
+              aria-label="Exibir"
+              (click)="handleShowPassword()"
+            >
+              <mat-icon *ngIf="!showPassword">visibility</mat-icon>
+              <mat-icon *ngIf="showPassword">visibility_off</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-checkbox [formControl]="agreeTerms">Concorda com nossos termos e politica de privacidade</mat-checkbox>
+
+          <div class="form-button-container">
+            <button type="submit" mat-raised-button color="primary" class="form-item-full" [disabled]="form.invalid">Criar minha conta</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
