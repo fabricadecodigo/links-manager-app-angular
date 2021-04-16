@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-account',
-  templateUrl: './create-account.component.html',
-  styleUrls: ['./create-account.component.scss'],
+  selector: 'app-create-account-page',
+  templateUrl: './create-account-page.component.html',
+  styleUrls: ['./create-account-page.component.scss'],
 })
-export class CreateAccountComponent implements OnInit {
+export class CreateAccountPageComponent implements OnInit {
   form = this.formBuild.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],

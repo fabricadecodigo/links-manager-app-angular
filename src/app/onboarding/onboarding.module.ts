@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '@core/modules';
-import { CreateAccountComponent } from './pages/create-account/create-account.component';
+import { CreateAccountPageComponent } from './pages/create-account-page/create-account-page.component';
 
 @NgModule({
-  declarations: [CreateAccountComponent],
+  declarations: [CreateAccountPageComponent],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, AngularMaterialModule],
 })
 export class OnboardingModule {}
