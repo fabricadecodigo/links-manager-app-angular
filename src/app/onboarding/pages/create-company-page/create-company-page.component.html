@@ -1,0 +1,31 @@
+<div class="container-flex">
+  <div class="center-all">
+    <mat-card class="create-account-form form-container">
+      <mat-card-title>
+        <h1 class="mat-display-3 form-title">Dados da empresa</h1>
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field class="form-item-full">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput [formControl]="name" maxlength="250" />
+            <mat-error *ngIf="name.hasError('required')"> Nome é <strong>obrigatório</strong> </mat-error>
+            <mat-error *ngIf="name.hasError('minlength')"> Informe pelo menos <strong>{{ name.getError('minlength').requiredLength }} caracteres</strong> </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-item-full">
+            <mat-label>Url</mat-label>
+            <input type="text" matInput [formControl]="url" maxlength="250" />
+            <mat-error *ngIf="url.hasError('required')"> Url é <strong>obrigatória</strong> </mat-error>
+            <mat-error *ngIf="url.hasError('minlength')"> Informe pelo menos <strong>{{ name.getError('minlength').requiredLength }} caracteres</strong> </mat-error>
+          </mat-form-field>
+
+          <div class="form-button-container">
+            <button type="submit" mat-raised-button color="primary" class="form-item-full" [disabled]="form.invalid">Criar empresa</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-account-page',
@@ -33,15 +34,16 @@ export class CreateAccountPageComponent implements OnInit {
 
   showPassword = false;
 
-  constructor(private formBuild: FormBuilder) {}
+  constructor(private formBuild: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
-    console.log(this.form.value);
-  }
-
   handleShowPassword(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  onSubmit(): void {
+    console.log(this.form.value);
+    this.router.navigate(['create-company']);
   }
 }
