@@ -11,6 +11,7 @@
             <mat-label>Nome</mat-label>
             <input type="text" matInput [formControl]="name" maxlength="250" />
             <mat-error *ngIf="name.hasError('required')"> Nome é <strong>obrigatório</strong> </mat-error>
+            <mat-error *ngIf="name.hasError('minlength')"> Informe pelo menos <strong>{{ name.getError('minlength').requiredLength }} caracteres</strong> </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-item-full">
@@ -28,6 +29,7 @@
             <mat-error *ngIf="username.hasError('required')">
               Nome de usuário é <strong>obrigatório</strong>
             </mat-error>
+            <mat-error *ngIf="username.hasError('minlength')"> Informe pelo menos <strong>{{ username.getError('minlength').requiredLength }} caracteres</strong> </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-item-full">
