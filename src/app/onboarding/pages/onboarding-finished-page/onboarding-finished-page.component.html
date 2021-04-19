@@ -1,0 +1,15 @@
+<div class="container-flex">
+  <div class="center-all onbording-finished">
+    <h1 class="mat-display-3">{{ title }}</h1>
+
+    <p>{{ message }}</p>
+
+    <mat-icon *ngIf="messageType == 'success'" class="icon-status icon-success">check_circle_outline</mat-icon>
+    <mat-icon *ngIf="messageType === 'error'" class="icon-status icon-error">report_gmailerrorred</mat-icon>
+    <div>
+      <a mat-raised-button color="primary" routerLink="/">
+        <span>{{ buttonTitle }}</span>
+      </a>
+    </div>
+  </div>
+</div>

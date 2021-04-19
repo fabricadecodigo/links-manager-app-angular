@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-company-page',
@@ -19,11 +20,12 @@ export class CreateCompanyPageComponent implements OnInit {
     return this.form.get('url') as FormControl;
   }
 
-  constructor(private formBuild: FormBuilder) {}
+  constructor(private formBuild: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
     console.log(this.form.value);
+    this.router.navigate(['onboarding-status']);
   }
 }
