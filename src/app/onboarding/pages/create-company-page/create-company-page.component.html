@@ -18,7 +18,7 @@
             <mat-label>Url</mat-label>
             <input type="text" matInput [formControl]="url" maxlength="250" />
             <mat-error *ngIf="url.hasError('required')"> Url é <strong>obrigatória</strong> </mat-error>
-            <mat-error *ngIf="url.hasError('minlength')"> Informe pelo menos <strong>{{ name.getError('minlength').requiredLength }} caracteres</strong> </mat-error>
+            <mat-error *ngIf="url.hasError('minlength')"> Informe pelo menos <strong>{{ url.getError('minlength').requiredLength }} caracteres</strong> </mat-error>
           </mat-form-field>
 
           <div class="form-button-container">
