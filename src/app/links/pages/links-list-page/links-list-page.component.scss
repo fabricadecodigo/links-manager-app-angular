@@ -22,3 +22,15 @@
   margin: 1rem 0;
 }
 
+
+@media only screen and (max-width: 640px) {
+  .link-container {
+    flex-direction: column;
+  }
+
+  .link-actions {
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+  }
+}

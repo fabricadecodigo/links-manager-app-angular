@@ -2,10 +2,10 @@
   <h1 class="mat-display-3 text-center">Meus links</h1>
 
   <div class="links-list">
-    <mat-card class="link-container" *ngFor="let link of links" [ngClass]="{'link-container-disable': !link.enable}">
+    <mat-card class="link-container" *ngFor="let link of links" [ngClass]="{ 'link-container-disable': !link.enable }">
       <div class="link-content">
-        <h2>{{link.name}}</h2>
-        <p>{{link.url}}</p>
+        <h2>{{ link.name }}</h2>
+        <p>{{ link.url }}</p>
       </div>
       <div class="link-actions">
         <div>
@@ -22,4 +22,10 @@
       </div>
     </mat-card>
   </div>
+</div>
+
+<div class="button-new">
+  <a mat-fab color="primary" routerLink="new">
+    <mat-icon>add</mat-icon>
+  </a>
 </div>
