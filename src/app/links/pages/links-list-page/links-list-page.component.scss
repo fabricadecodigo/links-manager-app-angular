@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+.link-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link-container-disable {
+  background-color: mat-color($mat-gray, 100);
+}
+
+.link-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+}
+
+.links-list mat-card {
+  margin: 1rem 0;
+}
+

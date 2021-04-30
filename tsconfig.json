@@ -24,6 +24,7 @@
       "@core/*": ["./src/app/core/*"],
       "@authentication/*": ["./src/app/authentication/*"],
       "@onboarding/*": ["./src/app/onboarding/*"],
+      "@links/*": ["./src/app/links/*"],
     }
   },
   "angularCompilerOptions": {

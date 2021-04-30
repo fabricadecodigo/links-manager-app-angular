@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationModule } from '@authentication/authentication.module';
 import { AngularMaterialModule } from '@core/modules';
 import { AppErrorStateMatcher } from '@core/validations/app-error-state.matcher';
+import { LinkModule } from '@links/link.module';
 import { OnboardingModule } from '@onboarding/onboarding.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     AngularMaterialModule,
     AuthenticationModule,
     OnboardingModule,
+    LinkModule,
   ],
   providers: [{ provide: ErrorStateMatcher, useClass: AppErrorStateMatcher }],
   bootstrap: [AppComponent],

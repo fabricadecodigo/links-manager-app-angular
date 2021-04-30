@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="mat-display-3 text-center">Meus links</h1>
+
+  <div class="links-list">
+    <mat-card class="link-container" *ngFor="let link of links" [ngClass]="{'link-container-disable': !link.enable}">
+      <div class="link-content">
+        <h2>{{link.name}}</h2>
+        <p>{{link.url}}</p>
+      </div>
+      <div class="link-actions">
+        <div>
+          <mat-slide-toggle color="primary" [checked]="link.enable"></mat-slide-toggle>
+        </div>
+        <div>
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <a mat-icon-button color="primary" [routerLink]="['edit', link.id]">
+            <mat-icon>edit</mat-icon>
+          </a>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -10,6 +10,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'links',
+    loadChildren: () =>
+      import('./links/link-routing.module').then(
+        (m) => m.LinkRoutingModule
+      ),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./onboarding/onboarding-routing.module').then(
