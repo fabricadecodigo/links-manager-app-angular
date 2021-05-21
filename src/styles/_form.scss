@@ -10,4 +10,15 @@
 
 .form-button-container {
   margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form-button-container button {
+  flex: 1;
+}
+
+.mat-checkbox-label {
+  white-space: normal;
 }

@@ -1,0 +1,34 @@
+<div class="container-flex">
+  <div class="center-all">
+    <mat-card class="links-form form-container">
+
+      <mat-card-title>
+        <h1 class="mat-display-3 form-title">{{pageTitle}}</h1>
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field class="form-item-full">
+            <mat-label>Título</mat-label>
+            <input type="text" matInput [formControl]="title" />
+            <mat-error *ngIf="title.hasError('required')"> Título é <strong>obrigatório</strong> </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-item-full">
+            <mat-label>Url</mat-label>
+            <input type="url" matInput [formControl]="url" />
+            <mat-error *ngIf="url.hasError('required')"> Url é <strong>obrigatório</strong> </mat-error>
+          </mat-form-field>
+
+          <mat-slide-toggle color="primary" [formControl]="enable">Habilitar/Desabilitar link</mat-slide-toggle>
+
+
+          <div class="form-button-container">
+            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Salvar</button>
+            <button type="submit" mat-stroked-button color="primary" routerLink="/links">Cancelar</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
