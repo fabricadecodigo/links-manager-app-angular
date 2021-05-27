@@ -1,3 +1,8 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$warn: mat-palette($mat-red);
+
 .form-container .mat-display-3 {
   text-align: center;
   margin: 1rem 0;
@@ -21,4 +26,9 @@
 
 .mat-checkbox-label {
   white-space: normal;
+}
+
+.form-error {
+  color: mat-color($warn);
+  display: block;
 }
