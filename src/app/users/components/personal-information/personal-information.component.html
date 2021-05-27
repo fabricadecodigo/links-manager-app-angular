@@ -1,0 +1,24 @@
+<mat-card class="form-container">
+  <mat-card-title>
+    <h1 class="mat-display-2 form-title">Informações pessoais</h1>
+  </mat-card-title>
+
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <mat-form-field class="form-item-full">
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput [formControl]="name" />
+        <mat-error *ngIf="name.hasError('required')"> Nome é <strong>obrigatório</strong> </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item-full">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput [formControl]="email" readonly />
+      </mat-form-field>
+
+      <div class="form-button-container">
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Salvar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

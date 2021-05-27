@@ -17,6 +17,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'users',
+    loadChildren: () =>
+      import('./users/user-routing.module').then(
+        (m) => m.UserRoutingModule
+      ),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./onboarding/onboarding-routing.module').then(

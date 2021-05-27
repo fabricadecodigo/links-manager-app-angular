@@ -7,6 +7,7 @@ import { AngularMaterialModule } from '@core/modules';
 import { AppErrorStateMatcher } from '@core/validations/app-error-state.matcher';
 import { LinkModule } from '@links/link.module';
 import { OnboardingModule } from '@onboarding/onboarding.module';
+import { UserModule } from '@users/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -20,6 +21,7 @@ import { AppComponent } from './app.component';
     AuthenticationModule,
     OnboardingModule,
     LinkModule,
+    UserModule,
   ],
   providers: [{ provide: ErrorStateMatcher, useClass: AppErrorStateMatcher }],
   bootstrap: [AppComponent],
