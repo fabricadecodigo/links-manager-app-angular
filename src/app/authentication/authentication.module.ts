@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '@core/modules';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
 
 @NgModule({
-  declarations: [LoginPageComponent, ForgotPasswordPageComponent],
+  declarations: [LoginPageComponent, ForgotPasswordPageComponent, ResetPasswordPageComponent],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, AngularMaterialModule],
 })
 export class AuthenticationModule {}
