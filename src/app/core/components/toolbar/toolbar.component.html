@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/"><span>LinkApp</span></a>
+
+  <span class="toobal-spacer"></span>
+
+  <div id="account-menu" *ngIf="showAuthenticatedMenu">
+    <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #accountMenu="matMenu" xPosition="before">
+      <button mat-menu-item routerLink="/admin/users/my-account">Minha conta</button>
+      <button mat-menu-item routerLink="/auth/login">Sair</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
