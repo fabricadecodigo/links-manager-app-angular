@@ -10,6 +10,7 @@ import { ConfirmationModule } from '@core/services/confirmation/confirmation.mod
 import { AppErrorStateMatcher } from '@core/validations/app-error-state.matcher';
 import { LinkModule } from '@links/link.module';
 import { OnboardingModule } from '@onboarding/onboarding.module';
+import { UserLinkModule } from '@users-links/user-link.module';
 import { UserModule } from '@users/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { AppComponent } from './app.component';
     LinkModule,
     UserModule,
     ConfirmationModule,
+    UserLinkModule,
   ],
   providers: [{ provide: ErrorStateMatcher, useClass: AppErrorStateMatcher }],
   bootstrap: [AppComponent],

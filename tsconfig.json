@@ -26,6 +26,7 @@
       "@onboarding/*": ["./src/app/onboarding/*"],
       "@links/*": ["./src/app/links/*"],
       "@users/*": ["./src/app/users/*"],
+      "@users-links/*": ["./src/app/users-links/*"],
     }
   },
   "angularCompilerOptions": {

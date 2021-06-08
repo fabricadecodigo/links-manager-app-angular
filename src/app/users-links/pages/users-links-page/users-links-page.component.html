@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="text-center mat-display-2 title">{{ companyName }}</h1>
+  <h2 class="text-center">{{ companyUrl }}</h2>
+
+  <div class="links-container">
+    <div *ngFor="let link of links" class="link-item">
+      <a mat-raised-button [href]="link.url" target="_blank" color="primary">{{ link.name }}</a>
+    </div>
+  </div>
+</div>
