@@ -6,6 +6,7 @@ import { AuthenticationModule } from '@authentication/authentication.module';
 import { SharedComponentModule } from '@core/components/shared-component.module';
 import { AngularMaterialModule } from '@core/modules';
 import { PageLayoutModule } from '@core/pages-layouts/page-layout.module';
+import { ConfirmationModule } from '@core/services/confirmation/confirmation.module';
 import { AppErrorStateMatcher } from '@core/validations/app-error-state.matcher';
 import { LinkModule } from '@links/link.module';
 import { OnboardingModule } from '@onboarding/onboarding.module';
@@ -26,6 +27,7 @@ import { AppComponent } from './app.component';
     OnboardingModule,
     LinkModule,
     UserModule,
+    ConfirmationModule,
   ],
   providers: [{ provide: ErrorStateMatcher, useClass: AppErrorStateMatcher }],
   bootstrap: [AppComponent],
