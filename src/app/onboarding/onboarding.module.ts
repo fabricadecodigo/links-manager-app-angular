@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -9,6 +10,6 @@ import { OnboardingFinishedPageComponent } from './pages/onboarding-finished-pag
 
 @NgModule({
   declarations: [CreateAccountPageComponent, CreateCompanyPageComponent, OnboardingFinishedPageComponent],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, AngularMaterialModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, AngularMaterialModule, HttpClientModule],
 })
 export class OnboardingModule {}

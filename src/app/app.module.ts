@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationModule } from '@authentication/authentication.module';
 import { SharedComponentModule } from '@core/components/shared-component.module';
+import { httpInterceptorProviders } from '@core/interceptors/http-interceptor-provider';
 import { AngularMaterialModule } from '@core/modules';
 import { PageLayoutModule } from '@core/pages-layouts/page-layout.module';
 import { ConfirmationModule } from '@core/services/confirmation/confirmation.module';
@@ -31,7 +32,7 @@ import { AppComponent } from './app.component';
     ConfirmationModule,
     UserLinkModule,
   ],
-  providers: [{ provide: ErrorStateMatcher, useClass: AppErrorStateMatcher }],
+  providers: [{ provide: ErrorStateMatcher, useClass: AppErrorStateMatcher }, httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

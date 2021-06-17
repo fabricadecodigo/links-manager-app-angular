@@ -1,14 +1,14 @@
 <div class="container-flex">
-  <div class="center-all onbording-finished">
-    <h1 class="mat-display-3">{{ title }}</h1>
+  <div class="center-all onbording-finished" *ngIf="onboardingResult">
+    <h1 class="mat-display-3">{{ onboardingResult.title }}</h1>
 
-    <p>{{ message }}</p>
+    <p>{{ onboardingResult.message }}</p>
 
-    <mat-icon *ngIf="messageType == 'success'" class="icon-status icon-success">check_circle_outline</mat-icon>
-    <mat-icon *ngIf="messageType === 'error'" class="icon-status icon-error">report_gmailerrorred</mat-icon>
+    <mat-icon *ngIf="onboardingResult.messageType == 'success'" class="icon-status icon-success">check_circle_outline</mat-icon>
+    <mat-icon *ngIf="onboardingResult.messageType === 'error'" class="icon-status icon-error">report_gmailerrorred</mat-icon>
     <div>
-      <a mat-raised-button color="primary" routerLink="/">
-        <span>{{ buttonTitle }}</span>
+      <a mat-raised-button color="primary" [routerLink]="[onboardingResult.buttonRouter]">
+        <span>{{ onboardingResult.buttonTitle }}</span>
       </a>
     </div>
   </div>

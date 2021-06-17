@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OnboardingHandler } from '@onboarding/business-rules/onboarding.handler';
 
 @Component({
   selector: 'app-create-account-page',
@@ -34,7 +35,7 @@ export class CreateAccountPageComponent implements OnInit {
 
   showPassword = false;
 
-  constructor(private formBuild: FormBuilder, private router: Router) {}
+  constructor(private formBuild: FormBuilder, private router: Router, private onboardingHandler: OnboardingHandler) {}
 
   ngOnInit(): void {}
 
@@ -43,7 +44,8 @@ export class CreateAccountPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
+    const { agreeTerms, ...user } = this.form.value;
+    this.onboardingHandler.addUser(user);
     this.router.navigate(['create-company']);
   }
 }
