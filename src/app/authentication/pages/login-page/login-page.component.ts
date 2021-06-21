@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { LoginHandler } from '@authentication/business-rules/login.handler';
 
 @Component({
   selector: 'app-login-page',
@@ -21,12 +22,12 @@ export class LoginPageComponent implements OnInit {
 
   showPassword = false;
 
-  constructor(private formBuild: FormBuilder) {}
+  constructor(private formBuild: FormBuilder, private loginHandler: LoginHandler) {}
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
-    console.log(this.form.value);
+  async onSubmit(): Promise<void> {
+    await this.loginHandler.execute(this.email.value, this.password.value);
   }
 
   handleShowPassword(): void {
