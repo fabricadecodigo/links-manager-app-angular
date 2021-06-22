@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@authentication/guards/auth.guard';
 import { AuthenticatedLayoutComponent } from '@core/pages-layouts/page-layout/authenticated-layout/authenticated-layout.component';
 import { NonAuthenticatedLayoutComponent } from '@core/pages-layouts/page-layout/non-authenticated-layout/non-authenticated-layout.component';
 import { UserLinksLayoutComponent } from '@core/pages-layouts/page-layout/user-links-layout/user-links-layout.component';
@@ -7,6 +8,7 @@ import { UserLinksLayoutComponent } from '@core/pages-layouts/page-layout/user-l
 const routes: Routes = [
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     component: AuthenticatedLayoutComponent,
     children: [
       {

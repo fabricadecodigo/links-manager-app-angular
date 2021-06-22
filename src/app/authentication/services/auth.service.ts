@@ -45,6 +45,15 @@ export class AuthService {
     return !(date.valueOf() > new Date().valueOf());
   }
 
+  isUserLoggedIn(): boolean {
+    const token = this.getToken();
+    if (token && !this.isTokenExpired(token)) {
+      return true;
+    }
+
+    return false;
+  }
+
   logout(): void {
     this.removeToken();
   }
