@@ -56,6 +56,8 @@ describe('LoginHandler', () => {
   });
 
   it('Dado que eu quero me autenticar Quando a autenticação retorna null Então exibe uma mensagem de erro', async () => {
+    authenticationRepositorySpy.login.and.returnValue(Promise.resolve(undefined));
+
     await service.execute('test@test.com', '123456');
     expect(toastSpy.showError).toHaveBeenCalledWith(
       'Ocorreu algum erro ao efetuar o login. Recarregue a página e tente novamente'

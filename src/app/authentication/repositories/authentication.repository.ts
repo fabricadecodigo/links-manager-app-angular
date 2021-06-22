@@ -13,7 +13,7 @@ export class AuthenticationRepository {
     this.httpClient = new HttpClient(httpBackend);
   }
 
-  login(email: string, password: string): Promise<IAuthenticatedUser> {
+  login(email: string, password: string): Promise<IAuthenticatedUser | undefined> {
     return this.httpClient
       .post<IAuthenticatedUser>(`${environment.api}/auth/local`, {
         identifier: email,
