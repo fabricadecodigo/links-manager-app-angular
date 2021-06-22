@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ForgotPasswordHandler } from '@authentication/business-rules/forgot-password.handler';
 
 @Component({
   selector: 'app-forgot-password-page',
@@ -15,11 +16,11 @@ export class ForgotPasswordPageComponent implements OnInit {
     return this.form.get('email') as FormControl;
   }
 
-  constructor(private formBuild: FormBuilder) {}
+  constructor(private formBuild: FormBuilder, private forgotPasswordHandler: ForgotPasswordHandler) {}
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
-    console.log(this.form.value);
+  async onSubmit(): Promise<void> {
+    await this.forgotPasswordHandler.execute(this.email.value);
   }
 }

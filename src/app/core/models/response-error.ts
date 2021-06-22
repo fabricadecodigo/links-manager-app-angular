@@ -1,11 +1,27 @@
 import { HttpErrorResponse } from '@angular/common/http';
 export class ResponseError {
-  statusCode: number;
-  error: string;
-  private errorId: string;
-  private errorMessage: string;
+  statusCode = -1;
+  error = '';
+  protected errorId = '';
+  private errorMessage = '';
 
-  constructor(responseError: HttpErrorResponse) {
+  constructor(responseError: HttpErrorResponse | Error) {
+    if (responseError instanceof HttpErrorResponse) {
+      this.processHttpError(responseError);
+    } else {
+      this.processError(responseError);
+    }
+    return this;
+  }
+
+  private processError(responseError: Error): void {
+    this.statusCode = -1;
+    this.error = 'FrontEnd Error';
+    this.errorId = '';
+    this.errorMessage = responseError.message;
+  }
+
+  private processHttpError(responseError: HttpErrorResponse): void {
     const apiError: IApiError = responseError.error;
     this.statusCode = apiError.statusCode;
     this.error = apiError.error;
@@ -16,9 +32,6 @@ export class ResponseError {
   }
 
   getMessage(): string {
-    if (this.errorId === 'Auth.form.error.invalid') {
-      return 'Usuário ou senha invalido(s)';
-    }
     return this.errorMessage;
   }
 }

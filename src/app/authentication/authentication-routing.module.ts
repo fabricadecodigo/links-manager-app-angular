@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ForgotPasswordPageComponent,
   },
   {
-    path: 'reset-password/:id',
+    path: 'reset-password',
     component: ResetPasswordPageComponent,
   },
 ];

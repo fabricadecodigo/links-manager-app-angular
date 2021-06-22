@@ -28,12 +28,22 @@ export class LoginHandler {
         throw new Error('Ocorreu algum erro ao efetuar o login. Recarregue a página e tente novamente');
       }
     } catch (error) {
-      if (error instanceof HttpErrorResponse) {
-        const apiError = new ResponseError(error);
-        this.toast.showError(apiError.getMessage());
-      } else {
-        this.toast.showError(error.message);
-      }
+      const responseError = new LoginResponseError(error).getMessage();
+      this.toast.showError(responseError);
     }
+  }
+}
+
+class LoginResponseError extends ResponseError {
+  constructor(responseError: HttpErrorResponse | Error) {
+    super(responseError);
+  }
+
+  getMessage(): string {
+    if (this.errorId === 'Auth.form.error.invalid') {
+      return 'Usuário ou senha invalido(s)';
+    }
+
+    return super.getMessage();
   }
 }

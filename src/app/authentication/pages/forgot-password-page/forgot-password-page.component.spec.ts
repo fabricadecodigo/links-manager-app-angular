@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForgotPasswordHandler } from '@authentication/business-rules/forgot-password.handler';
 import { ForgotPasswordPageComponent } from './forgot-password-page.component';
 
 describe('ForgotPasswordPageComponent', () => {
@@ -10,6 +11,12 @@ describe('ForgotPasswordPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ForgotPasswordPageComponent],
       imports: [ReactiveFormsModule],
+      providers: [
+        {
+          provide: ForgotPasswordHandler,
+          useValue: jasmine.createSpyObj<ForgotPasswordHandler>('ForgotPasswordHandler', ['execute']),
+        },
+      ],
     }).compileComponents();
   });
 
