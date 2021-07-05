@@ -8,4 +8,13 @@ export abstract class BaseRepository<TResponse> {
   create(entity: IEntity): Promise<TResponse> {
     return this.httpClient.post<TResponse>(`${environment.api}${this.path}`, entity).toPromise();
   }
+
+  update(entity: IEntity): Promise<TResponse> {
+    const { id, ...data } = entity;
+    return this.httpClient.put<TResponse>(`${environment.api}${this.path}/${id}`, data).toPromise();
+  }
+
+  getById(id: number): Promise<TResponse> {
+    return this.httpClient.get<TResponse>(`${environment.api}${this.path}/${id}`).toPromise();
+  }
 }

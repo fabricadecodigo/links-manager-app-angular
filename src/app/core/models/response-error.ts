@@ -22,13 +22,19 @@ export class ResponseError {
   }
 
   private processHttpError(responseError: HttpErrorResponse): void {
-    const apiError: IApiError = responseError.error;
-    this.statusCode = apiError.statusCode;
-    this.error = apiError.error;
-    const [firstError] = apiError.message;
-    const [firstMessage] = firstError.messages;
-    this.errorId = firstMessage.id;
-    this.errorMessage = firstMessage.message;
+    if (responseError.error instanceof Object) {
+      const apiError: IApiError = responseError.error;
+      this.statusCode = apiError.statusCode;
+      this.error = apiError.error;
+      const [firstError] = apiError.message;
+      const [firstMessage] = firstError.messages;
+      this.errorId = firstMessage.id;
+      this.errorMessage = firstMessage.message;
+    } else {
+      this.statusCode = responseError.status;
+      this.error = responseError.error;
+      this.errorMessage = responseError.error;
+    }
   }
 
   getMessage(): string {
