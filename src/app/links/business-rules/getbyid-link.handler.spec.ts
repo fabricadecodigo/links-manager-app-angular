@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { ToastService } from '@core/services';
 import { LinkRepository } from '@links/repositories/link.repository';
-import { GetByIdLinkHandler } from './getbyid-link-handle';
+import { GetByIdLinkHandler } from './getbyid-link.handler';
 
 describe('GetByIdLinkHandler', () => {
   let service: GetByIdLinkHandler;

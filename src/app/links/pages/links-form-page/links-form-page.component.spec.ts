@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularMaterialModule } from '@core/modules';
 import { CreateLinkHandler } from '@links/business-rules/create-link.handler';
-import { GetByIdLinkHandler } from '@links/business-rules/getbyid-link-handle';
+import { GetByIdLinkHandler } from '@links/business-rules/getbyid-link.handler';
 import { UpdateLinkHandler } from '@links/business-rules/update-link.handler';
 import { LinksFormPageComponent } from './links-form-page.component';
 
