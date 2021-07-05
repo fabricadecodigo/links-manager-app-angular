@@ -1,15 +1,32 @@
 <div class="container">
   <h1 class="mat-display-3 text-center">Meus links</h1>
 
+  <mat-card class="search-form">
+    <mat-card-header>
+      <mat-card-title>Pesquisar</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <mat-form-field class="form-item-full">
+          <mat-label>Título</mat-label>
+          <input type="text" matInput [formControl]="title" />
+        </mat-form-field>
+        <div class="search-button">
+          <button type="submit" mat-raised-button color="primary">Pesquisar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
   <div class="links-list">
-    <mat-card class="link-container" *ngFor="let link of links" [ngClass]="{ 'link-container-disable': !link.enable }">
+    <mat-card *ngIf="links.length === 0"> Nenhum link encontrado </mat-card>
+    <mat-card class="link-container" *ngFor="let link of links" [ngClass]="{ 'link-container-disable': !link.ativo }">
       <div class="link-content">
-        <h2>{{ link.name }}</h2>
+        <h2>{{ link.title }}</h2>
         <p>{{ link.url }}</p>
       </div>
       <div class="link-actions">
         <div>
-          <mat-slide-toggle color="primary" [checked]="link.enable"></mat-slide-toggle>
+          <mat-slide-toggle color="primary" [checked]="link.ativo"></mat-slide-toggle>
         </div>
         <div>
           <button mat-icon-button color="warn">

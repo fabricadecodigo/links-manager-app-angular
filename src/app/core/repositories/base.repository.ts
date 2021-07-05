@@ -1,5 +1,5 @@
 import { environment } from './../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IEntity } from '@core/models/ientity';
 
 export abstract class BaseRepository<TResponse> {
@@ -16,5 +16,11 @@ export abstract class BaseRepository<TResponse> {
 
   getById(id: number): Promise<TResponse> {
     return this.httpClient.get<TResponse>(`${environment.api}${this.path}/${id}`).toPromise();
+  }
+
+  getAll(params: HttpParams): Promise<TResponse[]> {
+    return this.httpClient
+      .get<TResponse[]>(`${environment.api}${this.path}/`, { params })
+      .toPromise();
   }
 }

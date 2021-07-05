@@ -37,3 +37,13 @@ $warn: mat-palette($mat-red);
   color: mat-color($warn);
   display: block;
 }
+
+.search-form .mat-card-header-text {
+  margin: 0;
+}
+
+.search-form .mat-card-content form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
