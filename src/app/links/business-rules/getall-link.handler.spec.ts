@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { ToastService } from '@core/services';
 import { LinkRepository } from '@links/repositories/link.repository';
 import { GetAllLinkHandler } from './getall-link.handler';
+
 describe('GetAllLinkHandler', () => {
   let service: GetAllLinkHandler;
   const linkRepositorySpy = jasmine.createSpyObj<LinkRepository>('LinkRepository', ['getAll']);
