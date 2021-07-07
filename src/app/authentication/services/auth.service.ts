@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IAuthenticatedUserData } from '@onboarding/models/iauthenticated-user';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
@@ -7,8 +8,9 @@ import jwt_decode from 'jwt-decode';
 export class AuthService {
   constructor() {}
 
-  removeToken(): void {
+  clearLocalStorage(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('user-data');
   }
 
   setToken(token: string): void {
@@ -18,6 +20,33 @@ export class AuthService {
   getToken(): string {
     const token = localStorage.getItem('token') || '';
     return token;
+  }
+
+  setUser(user: IAuthenticatedUserData): void {
+    const data: IAuthenticatedUserData = {
+      Name: user.Name,
+      email: user.email,
+      id: user.id,
+      username: user.username,
+    };
+    localStorage.setItem('user-data', JSON.stringify(data));
+  }
+
+  getUser(): IAuthenticatedUserData | undefined {
+    const user = localStorage.getItem('user-data');
+    if (user) {
+      return JSON.parse(user) as IAuthenticatedUserData;
+    }
+
+    return undefined;
+  }
+
+  updateUser(name: string): void {
+    const user = this.getUser();
+    if (user) {
+      user.Name = name;
+      this.setUser(user);
+    }
   }
 
   getTokenExpirationDate(token: string): Date | undefined {
@@ -55,6 +84,6 @@ export class AuthService {
   }
 
   logout(): void {
-    this.removeToken();
+    this.clearLocalStorage();
   }
 }

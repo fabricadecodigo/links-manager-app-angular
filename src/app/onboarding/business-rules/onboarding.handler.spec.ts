@@ -42,7 +42,7 @@ describe('OnboardingHandler', () => {
         jwt: '1asd2323d',
         user: {
           id: 1,
-          name: 'Teste',
+          Name: 'Teste',
           email: 'teste@teste.com',
           username: 'teste',
         },
@@ -72,7 +72,7 @@ describe('OnboardingHandler', () => {
         jwt: '1asd2323d',
         user: {
           id: 1,
-          name: 'Teste',
+          Name: 'Teste',
           email: 'teste@teste.com',
           username: 'teste',
         },

@@ -22,6 +22,8 @@ export class LoginHandler {
       const authenticatedUser = await this.repository.login(email, password);
       if (authenticatedUser) {
         this.authService.setToken(authenticatedUser.jwt);
+        this.authService.setUser(authenticatedUser.user);
+
         this.router.navigate(['/admin/links']);
         this.toast.showSuccess('Login efetuado com sucesso');
       } else {

@@ -15,7 +15,7 @@ describe('LoginHandler', () => {
     'login',
   ]);
   const toastSpy = jasmine.createSpyObj<ToastService>('ToastService', ['showError', 'showSuccess']);
-  const authServiceSpy = jasmine.createSpyObj<AuthService>('AuthService', ['setToken']);
+  const authServiceSpy = jasmine.createSpyObj<AuthService>('AuthService', ['setToken', 'setUser']);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -43,7 +43,7 @@ describe('LoginHandler', () => {
         user: {
           id: 1,
           email: 'test@test.com',
-          name: 'Teste',
+          Name: 'Teste',
           username: 'teste',
         },
       })
@@ -51,6 +51,12 @@ describe('LoginHandler', () => {
 
     await service.execute('test@test.com', '123456');
     expect(authServiceSpy.setToken).toHaveBeenCalledWith('123');
+    expect(authServiceSpy.setUser).toHaveBeenCalledWith({
+      id: 1,
+      email: 'test@test.com',
+      Name: 'Teste',
+      username: 'teste',
+    });
     expect(router.navigate).toHaveBeenCalledWith(['/admin/links']);
     expect(toastSpy.showSuccess).toHaveBeenCalledWith('Login efetuado com sucesso');
   });

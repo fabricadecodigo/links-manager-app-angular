@@ -42,7 +42,7 @@ describe('ResetPasswordHandler', () => {
         user: {
           email: 'teste@teste.com',
           id: 1,
-          name: 'Teste',
+          Name: 'Teste',
           username: 'teste',
         },
       })
