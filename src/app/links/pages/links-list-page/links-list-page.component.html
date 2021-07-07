@@ -26,7 +26,7 @@
       </div>
       <div class="link-actions">
         <div>
-          <mat-slide-toggle color="primary" [checked]="link.ativo"></mat-slide-toggle>
+          <mat-slide-toggle color="primary" [checked]="link.ativo" (change)="enableDisableLink(link)"></mat-slide-toggle>
         </div>
         <div>
           <button mat-icon-button color="warn" (click)="deleteLink(link)">

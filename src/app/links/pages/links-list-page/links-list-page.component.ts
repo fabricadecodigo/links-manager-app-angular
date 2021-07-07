@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { DeleteLinkHandler } from '@links/business-rules/delete-link.handler';
 import { GetAllLinkHandler } from '@links/business-rules/getall-link.handler';
+import { UpdateLinkHandler } from '@links/business-rules/update-link.handler';
 import { ILink } from '@links/models/ilink';
 
 @Component({
@@ -23,7 +24,8 @@ export class LinksListPageComponent implements OnInit {
   constructor(
     private formBuild: FormBuilder,
     private getAllLinkHandler: GetAllLinkHandler,
-    private deleteLinkHandler: DeleteLinkHandler
+    private deleteLinkHandler: DeleteLinkHandler,
+    private updateLinkHandler: UpdateLinkHandler
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -48,5 +50,10 @@ export class LinksListPageComponent implements OnInit {
     if (response) {
       this.links.splice(this.links.indexOf(link), 1);
     }
+  }
+
+  async enableDisableLink(link: ILink): Promise<void> {
+    link.ativo = !link.ativo;
+    await this.updateLinkHandler.execute(link);
   }
 }
