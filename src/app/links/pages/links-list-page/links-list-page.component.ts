@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { DeleteLinkHandler } from '@links/business-rules/delete-link.handler';
 import { GetAllLinkHandler } from '@links/business-rules/getall-link.handler';
 import { ILink } from '@links/models/ilink';
 
@@ -19,7 +20,11 @@ export class LinksListPageComponent implements OnInit {
     return this.form.get('title') as FormControl;
   }
 
-  constructor(private formBuild: FormBuilder, private getAllLinkHandler: GetAllLinkHandler) {}
+  constructor(
+    private formBuild: FormBuilder,
+    private getAllLinkHandler: GetAllLinkHandler,
+    private deleteLinkHandler: DeleteLinkHandler
+  ) {}
 
   async ngOnInit(): Promise<void> {
     await this.getAllLinks();
@@ -36,5 +41,12 @@ export class LinksListPageComponent implements OnInit {
 
   async onSubmit(): Promise<void> {
     await this.getAllLinks(this.title.value);
+  }
+
+  async deleteLink(link: ILink): Promise<void> {
+    const response = await this.deleteLinkHandler.execute(link);
+    if (response) {
+      this.links.splice(this.links.indexOf(link), 1);
+    }
   }
 }
