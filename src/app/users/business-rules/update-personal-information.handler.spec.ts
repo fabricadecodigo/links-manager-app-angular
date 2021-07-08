@@ -52,7 +52,7 @@ describe('UpdatePersonalInformationHandler', () => {
     expect(toastSpy.showSuccess).toHaveBeenCalledWith('Nome alterado com sucesso');
   });
 
-  it('Dado que eu quero atualizar o nome do usuário Quando passo as informações corretas Então o nome é alterado com sucesso', async () => {
+  it('Dado que eu quero atualizar o nome do usuário Quando não passo as informações corretas Então exibe mensagem de erro', async () => {
     const error: IApiError = {
       error: 'Error',
       message: [
