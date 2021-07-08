@@ -2,10 +2,10 @@
   <div class="my-account">
     <h1 class="mat-display-3 form-title text-center">Minha conta</h1>
     <div class="my-account-item">
-      <app-personal-information></app-personal-information>
+      <app-personal-information [user]="user"></app-personal-information>
     </div>
     <div class="my-account-item">
-      <app-change-password></app-change-password>
+      <app-change-password [user]="user"></app-change-password>
     </div>
     <div class="my-account-item">
       <app-company-information></app-company-information>

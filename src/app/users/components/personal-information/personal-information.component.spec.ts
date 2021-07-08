@@ -11,16 +11,12 @@ describe('PersonalInformationComponent', () => {
     'UpdatePersonalInformationHandler',
     ['execute']
   );
-  const authServiceSpy = jasmine.createSpyObj<AuthService>('AuthService', ['getUser']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PersonalInformationComponent],
       imports: [ReactiveFormsModule],
-      providers: [
-        { provide: UpdatePersonalInformationHandler, useValue: updatePersonalInformationHandlerSpy },
-        { provide: AuthService, useValue: authServiceSpy },
-      ],
+      providers: [{ provide: UpdatePersonalInformationHandler, useValue: updatePersonalInformationHandlerSpy }],
     }).compileComponents();
   });
 
