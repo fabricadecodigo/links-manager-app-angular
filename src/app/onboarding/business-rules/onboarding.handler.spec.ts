@@ -6,7 +6,7 @@ import { OnboardingHandler } from './onboarding.handler';
 
 describe('OnboardingHandler', () => {
   let service: OnboardingHandler;
-  const authServiceSpy = jasmine.createSpyObj<AuthService>('AuthService', ['setToken']);
+  const authServiceSpy = jasmine.createSpyObj<AuthService>('AuthService', ['setToken', 'setUser']);
   const registerUserRepositorySpy = jasmine.createSpyObj<RegisterUserRepository>('RegisterUserRepository', ['create']);
   const companyRepositorySpy = jasmine.createSpyObj<CompanyRepository>('CompanyRepository', ['create']);
 
@@ -81,6 +81,7 @@ describe('OnboardingHandler', () => {
 
     companyRepositorySpy.create.and.returnValue(
       Promise.resolve({
+        id: '1',
         name: 'Teste',
         slug: 'teste',
       })
@@ -105,6 +106,18 @@ describe('OnboardingHandler', () => {
       expect(result?.messageType).toBe('success');
       expect(result?.buttonTitle).toBe('Ir para a dashboard');
       expect(result?.buttonRouter).toBe('/admin/links');
+      expect(authServiceSpy.setToken).toHaveBeenCalledWith('1asd2323d');
+      expect(authServiceSpy.setUser).toHaveBeenCalledWith({
+        Name: 'Teste',
+        email: 'teste@teste.com',
+        id: 1,
+        username: 'teste',
+        company: {
+          id: 1,
+          name: 'Teste',
+          slug: 'teste',
+        },
+      });
     });
   });
 });

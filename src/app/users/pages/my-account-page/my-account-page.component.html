@@ -8,7 +8,7 @@
       <app-change-password [user]="user"></app-change-password>
     </div>
     <div class="my-account-item">
-      <app-company-information></app-company-information>
+      <app-company-information [company]="user?.company"></app-company-information>
     </div>
   </div>
 </div>

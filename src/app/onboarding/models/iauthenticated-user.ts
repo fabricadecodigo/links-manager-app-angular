@@ -8,4 +8,11 @@ export interface IAuthenticatedUserData {
   username: string;
   email: string;
   Name: string;
+  company?: IAuthenticatedUserCompanyData;
+}
+
+export interface IAuthenticatedUserCompanyData {
+  id: number;
+  name: string;
+  slug: string;
 }

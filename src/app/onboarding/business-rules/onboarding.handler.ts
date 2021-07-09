@@ -53,6 +53,14 @@ export class OnboardingHandler {
       return;
     }
 
+    authenticatedUser.user.company = {
+      id: Number(company.id),
+      name: company.name,
+      slug: company.slug
+    };
+
+    this.authService.setUser(authenticatedUser.user);
+
     this.setOnboardinSuccess();
   }
 

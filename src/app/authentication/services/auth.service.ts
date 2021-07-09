@@ -28,6 +28,7 @@ export class AuthService {
       email: user.email,
       id: user.id,
       username: user.username,
+      company: user.company
     };
     localStorage.setItem('user-data', JSON.stringify(data));
   }
@@ -45,6 +46,15 @@ export class AuthService {
     const user = this.getUser();
     if (user) {
       user.Name = name;
+      this.setUser(user);
+    }
+  }
+
+  updateCompany(name: string, slug: string): void {
+    const user = this.getUser();
+    if (user && user.company) {
+      user.company.name = name;
+      user.company.slug = slug;
       this.setUser(user);
     }
   }
