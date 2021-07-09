@@ -24,6 +24,12 @@ export abstract class BaseRepository<TResponse> {
       .toPromise();
   }
 
+  getByParams(params: HttpParams): Promise<TResponse[]> {
+    return this.httpClient
+      .get<TResponse[]>(`${environment.api}${this.path}/`, { params })
+      .toPromise();
+  }
+
   async delete(id: number): Promise<void> {
     await this.httpClient.delete(`${environment.api}${this.path}/${id}`).toPromise();
     return;

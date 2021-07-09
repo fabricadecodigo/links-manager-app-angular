@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GetLinksBySlugHandler } from '@users-links/business-rules/getlinksbyslug-userlinks.handler';
+import { ICompanyLinkData } from '@users-links/models/icompany-link';
 
 @Component({
   selector: 'app-users-links-page',
@@ -7,34 +9,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./users-links-page.component.scss'],
 })
 export class UsersLinksPageComponent implements OnInit {
-  companyName = 'Fábrica de Código';
+  companyName = '';
   companyUrl = '';
+  links: ICompanyLinkData[] = [];
 
-  links = [
-    {
-      name: 'Vídeo Novo',
-      url: 'https://www.youtube.com/watch?v=j6aOcANK22o',
-    },
-    {
-      name: 'Fábrica de Código Academy',
-      url: 'https://fabricadecodigo.com/',
-    },
-    {
-      name: 'Clean Architecture',
-      url: 'https://amzn.to/2Y8tjFi',
-    },
-    {
-      name: 'Site',
-      url: 'https://fabricadecodigo.com/',
-    },
-  ];
+  constructor(private activatedRoute: ActivatedRoute, private getLinksBySlugHandler: GetLinksBySlugHandler) {}
 
-  constructor(private activatedRoute: ActivatedRoute) {}
-
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const slug = this.activatedRoute.snapshot.paramMap.get('slug');
     if (slug) {
       this.companyUrl = `@${slug}`;
+      await this.loadLinks(slug);
+    }
+  }
+
+  async loadLinks(slug: string): Promise<void> {
+    const company = await this.getLinksBySlugHandler.execute(slug);
+    if (company) {
+      this.companyName = company.name;
+      this.links = company.links;
     }
   }
 }
