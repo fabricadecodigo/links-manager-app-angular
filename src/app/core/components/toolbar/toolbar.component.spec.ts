@@ -1,5 +1,6 @@
+import { AuthService } from '@authentication/services/auth.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { ToolbarComponent } from './toolbar.component';
 
 describe('ToolbarComponent', () => {
@@ -8,9 +9,12 @@ describe('ToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [ToolbarComponent],
+      providers: [
+        { provide: AuthService, useValue: jasmine.createSpyObj<AuthService>('AuthService', ['clearLocalStorage']) },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
