@@ -4,7 +4,7 @@ import { LinkRepository } from '@links/repositories/link.repository';
 import { of } from 'rxjs';
 import { DeleteLinkHandler } from './delete-link.handler';
 
-describe('AuthService', () => {
+describe('DeleteLinkHandler', () => {
   let service: DeleteLinkHandler;
   const linkRepositorySpy = jasmine.createSpyObj<LinkRepository>('LinkRepository', ['delete']);
   const toastSpy = jasmine.createSpyObj<ToastService>('ToastService', ['showSuccess']);
